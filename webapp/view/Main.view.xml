@@ -1,7 +1,12 @@
 <mvc:View controllerName="com.sap.vizframe.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz="sap.viz.ui5.controls">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content>
+            <viz:VizFrame id="vizFrameBar" height="150px" width="100%" vizType="bar"></viz:VizFrame>
+        </content>
     </Page>
 </mvc:View>
