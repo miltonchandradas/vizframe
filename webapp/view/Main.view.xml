@@ -1,12 +1,22 @@
 <mvc:View controllerName="com.sap.vizframe.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns:layout="sap.ui.layout"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:viz="sap.viz.ui5.controls">
-    <Page id="page" title="{i18n>title}">
-        <content>
-            <viz:VizFrame id="vizFrameBar" height="150px" width="100%" vizType="bar"></viz:VizFrame>
-        </content>
-    </Page>
+    <layout:Splitter width="100%" height="100%">
+        <layout:contentAreas>
+            <commons:ChartContainer id="chartContainer" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="{i18n>title}">
+                <commons:content>
+                    <commons:ChartContainerContent icon="sap-icon://line-chart" title="VizFrame Reference Chart">
+                        <commons:content>
+                            <viz:VizFrame id="vizFrameBar" height="200px" width="100%" vizType="bar"></viz:VizFrame>
+                        </commons:content>
+                    </commons:ChartContainerContent>
+                </commons:content>
+            </commons:ChartContainer>
+        </layout:contentAreas>
+    </layout:Splitter>
 </mvc:View>
