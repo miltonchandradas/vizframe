@@ -14,7 +14,7 @@ sap.ui.define([], function () {
           current: lines[1].value,
           recentHires: lines[2].value,
           referencePoint: lines[3].value,
-          maxRange: lines[4].value,
+          // maxRange: lines[4].value,
         };
 
         rows.push(entry);

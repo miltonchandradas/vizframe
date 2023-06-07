@@ -1,25 +1,5 @@
 [
   {
-    "value": 65000,
-    "visible": true,
-    "color": "sapUiNegativeElement",
-    "label": {
-      "text": "Min Range",
-      "visible": true,
-      "background": "sapUiNegativeElement"
-    }
-  },
-  {
-    "value": 65000,
-    "visible": true,
-    "color": "sapUiNegativeElement",
-    "label": {
-      "text": "$65k",
-      "visible": true,
-      "background": "sapUiNegativeElement"
-    }
-  },
-  {
     "value": 70000,
     "visible": true,
     "color": "sapUiCriticalElement",
@@ -80,23 +60,8 @@
     }
   },
   {
-    "value": 91000,
+    "value": 79000,
     "visible": true,
-    "color": "sapUiNegativeElement",
-    "label": {
-      "text": "Max Range",
-      "visible": true,
-      "background": "sapUiNegativeElement"
-    }
-  },
-  {
-    "value": 91000,
-    "visible": true,
-    "color": "sapUiNegativeElement",
-    "label": {
-      "text": "$91k",
-      "visible": true,
-      "background": "sapUiNegativeElement"
-    }
+    "color": "purple"
   }
 ]

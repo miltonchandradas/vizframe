@@ -107,8 +107,8 @@ sap.ui.define(
           valueAxis: {
             scale: {
               fixedRange: true,
-              minValue: 60000,
-              maxValue: 95000,
+              minValue: 65000,
+              maxValue: 91000,
             },
             label: {
               visible: true,
