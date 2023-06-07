@@ -5,6 +5,9 @@ sap.ui.define(
     "sap/m/MessageToast",
     "sap/viz/ui5/data/FlattenedDataset",
     "sap/viz/ui5/controls/common/feeds/FeedItem",
+    "sap/viz/ui5/controls/Popover",
+    "sap/viz/ui5/format/ChartFormatter",
+    "sap/viz/ui5/api/env/Format",
     "com/sap/vizframe/utils/datamanipulationUtils",
   ],
   /**
@@ -16,6 +19,9 @@ sap.ui.define(
     MessageToast,
     FlattenedDataset,
     FeedItem,
+    Popover,
+    ChartFormatter,
+    Format,
     datamanipulationUtils
   ) {
     "use strict";
@@ -31,6 +37,9 @@ sap.ui.define(
         this._lineModel2 = this.getOwnerComponent().getModel("lineModel2");
         this._tableModel2 = this.getOwnerComponent().getModel("tableModel2");
 
+        Format.numericFormatter(ChartFormatter.getInstance());
+        let formatPattern = ChartFormatter.DefaultPattern;
+
         let vizFrame = this.byId("vizFrameBar");
         let dataset = new FlattenedDataset({
           dimensions: [
@@ -43,6 +52,10 @@ sap.ui.define(
             {
               name: "Compensation",
               value: "{Value}",
+            },
+            {
+              name: "Peer Review",
+              value: "{Value1}",
             },
           ],
           data: {
@@ -63,23 +76,60 @@ sap.ui.define(
         );
 
         vizFrame.setVizProperties({
+          legend: {visible: false},
           plotArea: {
-            colorPalette: d3.scale.category20().range(),
+            colorPalette: ["#427CAC", "#FFFFFF"],
             referenceLine: {
               line: { valueAxis: lines },
+              defaultStyle: { size: 3, type: "solid" },
             },
-            drawingEffect: "glossy",
+            // drawingEffect: "glossy",
+            dataPointSize: { min: 10, max: 10 },
+            gridline: { visible: true, type: "dash" },
           },
           title: {
             visible: false,
           },
-          dataLabel: { visible: true, showTotal: true },
+          dataLabel: {
+            visible: false,
+            // formatString: formatPattern.SHORTFLOAT_MFD2,
+            style: { color: "black" },
+            position: "outside",
+          },
+          categoryAxis: {
+            label: {
+              visible: false,
+            },
+            title: {
+              visible: false,
+            },
+          },
+          valueAxis: {
+            scale: {
+              fixedRange: true,
+              minValue: 60000,
+              maxValue: 95000,
+            },
+            label: {
+              visible: true,
+              formatString: formatPattern.SHORTFLOAT,
+            },
+            title: {
+              visible: false,
+            },
+          }
         });
 
         let xAxis = new FeedItem({
           uid: "valueAxis",
           type: "Measure",
-          values: ["Compensation"],
+          values: ["Peer Review", "Compensation"],
+        });
+
+        let xAxii2 = new FeedItem({
+          uid: "valueAxis",
+          type: "Measure",
+          values: ["Compensation1"],
         });
 
         let yAxis = new FeedItem({
@@ -88,6 +138,7 @@ sap.ui.define(
           values: ["Position"],
         });
 
+        
         vizFrame.addFeed(xAxis);
         vizFrame.addFeed(yAxis);
 
@@ -127,19 +178,51 @@ sap.ui.define(
             colorPalette: d3.scale.category20().range(),
             referenceLine: {
               line: { valueAxis: lines2 },
+              defaultStyle: { size: 3, type: "solid" },
+              formatString: formatPattern.SHORTFLOAT_MFD2,
             },
             drawingEffect: "glossy",
+            dataPointSize: { min: 10, max: 10 },
+            gridline: { visible: true, type: "dash" },
           },
           title: {
             visible: false,
           },
-          dataLabel: { visible: true, showTotal: true },
+          dataLabel: {
+            visible: true,
+            showTotal: true,
+            style: { color: "black" },
+            position: "outside",
+          },
+          categoryAxis: {
+            label: {
+              visible: false,
+            },
+            title: {
+              visible: false,
+            },
+          },
+          valueAxis: {
+            scale: {
+              fixedRange: true,
+              minValue: 10000,
+              maxValue: 100000,
+            },
+            label: {
+              visible: true,
+              formatString: formatPattern.SHORTFLOAT,
+            },
+            title: {
+              visible: false,
+            },
+          },
         });
 
         let xAxis2 = new FeedItem({
           uid: "valueAxis",
           type: "Measure",
           values: ["Compensation"],
+          
         });
 
         let yAxis2 = new FeedItem({
@@ -157,8 +240,6 @@ sap.ui.define(
       press: function (oEvent) {
         MessageToast.show("The bullet micro chart is pressed.");
       },
-
-      
     });
   }
 );

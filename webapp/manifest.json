@@ -60,22 +60,22 @@
       },
       "vizFrameModel": {
         "type": "sap.ui.model.json.JSONModel",
-		    "uri": "./model/VizFrameData.json"
+        "uri": "./model/VizFrameData.json"
       },
       "lineModel": {
         "type": "sap.ui.model.json.JSONModel",
-		    "uri": "./model/LineData.json"
+        "uri": "./model/LineData.json"
       },
       "tableModel": {
         "type": "sap.ui.model.json.JSONModel"
       },
       "vizFrameModel2": {
         "type": "sap.ui.model.json.JSONModel",
-		    "uri": "./model/VizFrameData2.json"
+        "uri": "./model/VizFrameData2.json"
       },
       "lineModel2": {
         "type": "sap.ui.model.json.JSONModel",
-		    "uri": "./model/LineData2.json"
+        "uri": "./model/LineData2.json"
       },
       "tableModel2": {
         "type": "sap.ui.model.json.JSONModel"
@@ -102,9 +102,7 @@
         {
           "name": "RouteMain",
           "pattern": ":?query:",
-          "target": [
-            "TargetMain"
-          ]
+          "target": ["TargetMain"]
         }
       ],
       "targets": {

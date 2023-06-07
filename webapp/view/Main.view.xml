@@ -6,12 +6,12 @@
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:viz="sap.viz.ui5.controls">
-    <layout:VerticalLayout class="sapUiSmallMargin" width="100%">
-        <commons:ChartContainer id="chartContainer" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Current Job">
+    <layout:VerticalLayout width="100%">
+        <commons:ChartContainer id="chartContainer" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Salary Comparison">
             <commons:content>
                 <commons:ChartContainerContent icon="sap-icon://bar-chart" title="VizFrame Reference Chart">
                     <commons:content>
-                        <viz:VizFrame id="vizFrameBar" height="100px" width="100%" vizType="bar"></viz:VizFrame>
+                        <viz:VizFrame id="vizFrameBar" height="150px" width="100%" vizType="stacked_bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
                     </commons:content>
                 </commons:ChartContainerContent>
                 <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
@@ -54,11 +54,11 @@
                 </commons:ChartContainerContent>
             </commons:content>
         </commons:ChartContainer>
-        <commons:ChartContainer id="chartContainer2" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Target Job">
+        <commons:ChartContainer id="chartContainer2" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Target Job (Architect)">
             <commons:content>
                 <commons:ChartContainerContent icon="sap-icon://bar-chart" title="VizFrame Reference Chart">
                     <commons:content>
-                        <viz:VizFrame id="vizFrameBar2" height="100px" width="100%" vizType="bar"></viz:VizFrame>
+                        <viz:VizFrame id="vizFrameBar2" height="150px" width="100%" vizType="bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
                     </commons:content>
                 </commons:ChartContainerContent>
                 <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
