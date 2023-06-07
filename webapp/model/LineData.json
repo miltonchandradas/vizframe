@@ -1,0 +1,102 @@
+[
+  {
+    "value": 65000,
+    "visible": true,
+    "color": "sapUiNegativeElement",
+    "label": {
+      "text": "Min Range",
+      "visible": true,
+      "background": "sapUiNegativeElement"
+    }
+  },
+  {
+    "value": 65000,
+    "visible": true,
+    "color": "sapUiNegativeElement",
+    "label": {
+      "text": "$65k",
+      "visible": true,
+      "background": "sapUiNegativeElement"
+    }
+  },
+  {
+    "value": 70000,
+    "visible": true,
+    "color": "sapUiCriticalElement",
+    "label": {
+      "text": "Recent Hires",
+      "visible": true,
+      "background": "sapUiCriticalElement"
+    }
+  },
+  {
+    "value": 70000,
+    "visible": true,
+    "color": "sapUiCriticalElement",
+    "label": {
+      "text": "$70k",
+      "visible": true,
+      "background": "sapUiCriticalElement"
+    }
+  },
+  {
+    "value": 76000,
+    "visible": true,
+    "color": "sapUiPositiveElement",
+    "label": {
+      "text": "Ref Point",
+      "visible": true,
+      "background": "sapUiPositiveElement"
+    }
+  },
+  {
+    "value": 76000,
+    "visible": true,
+    "color": "sapUiPositiveElement",
+    "label": {
+      "text": "$76k",
+      "visible": true,
+      "background": "sapUiPositiveElement"
+    }
+  },
+  {
+    "value": 82000,
+    "visible": true,
+    "color": "#000000",
+    "label": {
+      "text": "Proposed",
+      "visible": true,
+      "background": "#000000"
+    }
+  },
+  {
+    "value": 82000,
+    "visible": true,
+    "color": "#000000",
+    "label": {
+      "text": "$82k",
+      "visible": true,
+      "background": "#000000"
+    }
+  },
+  {
+    "value": 91000,
+    "visible": true,
+    "color": "sapUiNegativeElement",
+    "label": {
+      "text": "Max Range",
+      "visible": true,
+      "background": "sapUiNegativeElement"
+    }
+  },
+  {
+    "value": 91000,
+    "visible": true,
+    "color": "sapUiNegativeElement",
+    "label": {
+      "text": "$91k",
+      "visible": true,
+      "background": "sapUiNegativeElement"
+    }
+  }
+]
