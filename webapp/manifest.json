@@ -58,6 +58,9 @@
           "bundleName": "com.sap.vizframe.i18n.i18n"
         }
       },
+      "viewModel": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
       "vizFrameModel": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "./model/VizFrameData.json"

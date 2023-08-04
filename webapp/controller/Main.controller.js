@@ -9,6 +9,7 @@ sap.ui.define(
     "sap/viz/ui5/format/ChartFormatter",
     "sap/viz/ui5/api/env/Format",
     "com/sap/vizframe/utils/datamanipulationUtils",
+    "csvtojson",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -22,12 +23,20 @@ sap.ui.define(
     Popover,
     ChartFormatter,
     Format,
-    datamanipulationUtils
+    datamanipulationUtils,
+    csvtojson
   ) {
     "use strict";
 
     return Controller.extend("com.sap.vizframe.controller.Main", {
-      onInit: function () {
+      onInit: async function () {
+        let csvContents = "name,email\nMilton,milton@test.com";
+        let promotionDetails = await csvtojson({
+          delimiter: ",",
+        }).fromString(csvContents);
+
+        this._debounce = this.debounce(this.doSomework.bind(this), 2000);
+
         this._vizFrameModel =
           this.getOwnerComponent().getModel("vizFrameModel");
         this._lineModel = this.getOwnerComponent().getModel("lineModel");
@@ -44,7 +53,7 @@ sap.ui.define(
         let dataset = new FlattenedDataset({
           dimensions: [
             {
-              name: "Position",
+              name: "Employee Position",
               value: "{Position}",
             },
           ],
@@ -76,7 +85,7 @@ sap.ui.define(
         );
 
         vizFrame.setVizProperties({
-          legend: {visible: false},
+          legend: { visible: false },
           plotArea: {
             colorPalette: ["#427CAC", "#FFFFFF"],
             referenceLine: {
@@ -117,7 +126,7 @@ sap.ui.define(
             title: {
               visible: false,
             },
-          }
+          },
         });
 
         let xAxis = new FeedItem({
@@ -126,19 +135,12 @@ sap.ui.define(
           values: ["Peer Review", "Compensation"],
         });
 
-        let xAxii2 = new FeedItem({
-          uid: "valueAxis",
-          type: "Measure",
-          values: ["Compensation1"],
-        });
-
         let yAxis = new FeedItem({
           uid: "categoryAxis",
           type: "Dimension",
-          values: ["Position"],
+          values: ["Employee Position"],
         });
 
-        
         vizFrame.addFeed(xAxis);
         vizFrame.addFeed(yAxis);
 
@@ -222,7 +224,6 @@ sap.ui.define(
           uid: "valueAxis",
           type: "Measure",
           values: ["Compensation"],
-          
         });
 
         let yAxis2 = new FeedItem({
@@ -239,6 +240,29 @@ sap.ui.define(
 
       press: function (oEvent) {
         MessageToast.show("The bullet micro chart is pressed.");
+      },
+ 
+      onLiveChange: function () {
+        // this.doSomework();
+        this._debounce("hello...");
+      },
+
+      doSomework: function (arg1) {
+        console.log("Key was pressed...", arg1);
+        let vizFrame = this.byId("vizFrameBar");
+        if (vizFrame) console.log("this is good...");
+      },
+
+      debounce: function (fn, delay) {
+        let timeoutID;
+        console.log("Initial Timeout ID: ", timeoutID);
+        return (...args) => {
+          console.log("Timeout ID: ", timeoutID);
+          if (timeoutID) clearTimeout(timeoutID);
+          timeoutID = setTimeout(() => {
+            fn(...args);
+          }, delay);
+        };
       },
     });
   }
