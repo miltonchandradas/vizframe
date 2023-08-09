@@ -1,0 +1,85 @@
+[
+  {
+    "value": 60000,
+    "visible": true,
+    "color": "darkgrey",
+    "size": 10,
+    "label": {
+      "text": "Pay Range Min - $60k",
+      "visible": true,
+      "style": {
+        "color": "grey",
+        "fontSize": 12,
+        "background": "white"
+      }
+    }
+  },
+  
+  {
+    "value": 76000,
+    "visible": true,
+    "color": "sapUiCriticalElement",
+    "label": {
+      "text": "Ref Point - $76k",
+      "visible": true,
+      "background": "sapUiCriticalElement",
+      "style": {
+        "fontSize": 14
+      }
+    }
+  },
+  {
+    "value": 80000,
+    "visible": true,
+    "color": "#427CAC",
+    "label": {
+      "text": "Median Peer Salary - $80k",
+      "visible": true,
+      "background": "#427CAC",
+      "style": {
+        "fontSize": 14
+      }
+    }
+  },
+  {
+    "value": 81000,
+    "visible": true,
+    "color": "black",
+    "label": {
+      "text": "Proposed Salary - $81k",
+      "visible": true,
+      "background": "black",
+      "style": {
+        "fontSize": 14
+      }
+    }
+  },
+  {
+    "value": 82000,
+    "visible": true,
+    "color": "#427CAC",
+    "label": {
+      "text": "External Recent Hires - $82k",
+      "visible": true,
+      "background": "#427CAC",
+      "style": {
+        "fontSize": 14
+      }
+    }
+  },
+  {
+    "value": 95000,
+    "visible": true,
+    "color": "darkgrey",
+    "size": 10,
+    "label": {
+      "text": "Pay Range Max - $95k",
+      "visible": true,
+      "style": {
+        "color": "grey",
+        "fontSize": 12,
+        "background": "white"
+      }
+    }
+  }
+]

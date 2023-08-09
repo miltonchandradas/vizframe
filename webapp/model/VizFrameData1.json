@@ -1,0 +1,7 @@
+{
+  "payscale": [
+    { "position": "Senior Engineer1", "minBarValue": "0", "maxBarValue": 0 },
+    { "position": "Senior Engineer2", "minBarValue": "68000", "maxBarValue": 18000 },
+    { "position": "Senior Engineer3", "minBarValue": "0", "maxBarValue": 60000, "peerBarValue": 35000 }
+  ]
+}

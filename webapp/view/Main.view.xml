@@ -7,99 +7,33 @@
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:viz="sap.viz.ui5.controls">
     <layout:VerticalLayout width="100%">
-        <commons:ChartContainer id="chartContainer" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Salary Comparison">
+        <MessageStrip text="Peer Set size should be at least 2 to display chart..." class="sapUiSmallMarginBottom"></MessageStrip>
+        <commons:ChartContainer id="chartContainer1" showFullScreen="true" showLegend="false" showLegendButton="true" showPersonalization="false" autoAdjustHeight="true" title="Compensation Evaluation Dashboard">
+            <commons:content>
+                <commons:ChartContainerContent>
+                    <commons:content>
+                        <viz:VizFrame id="vizFrameBar1" height="250px" width="100%" vizType="stacked_bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+                    </commons:content>
+                </commons:ChartContainerContent>         
+            </commons:content>
+        </commons:ChartContainer>
+        <!-- <commons:ChartContainer id="chartContainer2" showFullScreen="true" showLegend="true" showLegendButton="true" showPersonalization="false" autoAdjustHeight="true" title="Compensation Evaluation Dashboard">
+            <commons:content>
+                <commons:ChartContainerContent>
+                    <commons:content>
+                        <viz:VizFrame id="vizFrameBar2" height="250px" width="100%" vizType="stacked_bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+                    </commons:content>
+                </commons:ChartContainerContent>         
+            </commons:content>
+        </commons:ChartContainer> -->
+        <!-- <commons:ChartContainer id="chartContainer2" showFullScreen="true" showLegend="false" showLegendButton="false"  showPersonalization="false" autoAdjustHeight="false" title="Compensation Evaluation Dashboard">
             <commons:content>
                 <commons:ChartContainerContent icon="sap-icon://bar-chart" title="VizFrame Reference Chart">
                     <commons:content>
-                        <viz:VizFrame id="vizFrameBar" height="150px" width="100%" vizType="stacked_bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
-                    </commons:content>
-                </commons:ChartContainerContent>
-                <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
-                    <commons:content>
-                        <Table id="tableData" items="{tableModel>/jobDetails}">
-                            <columns>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Position"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Compensation"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Min Range"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Current"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Recent Hires"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Reference Point"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Max Range"/>
-                                </Column>
-                            </columns>
-                            <ColumnListItem press="">
-                                <Text text="{tableModel>position}"></Text>
-                                <Text text="{tableModel>compensation}"></Text>
-                                <Text text="{tableModel>minRange}"></Text>
-                                <Text text="{tableModel>current}"></Text>
-                                <Text text="{tableModel>recentHires}"></Text>
-                                <Text text="{tableModel>referencePoint}"></Text>
-                                <Text text="{tableModel>maxRange}"></Text>
-                            </ColumnListItem>
-                        </Table>
+                        <viz:VizFrame id="vizFrameBar2" height="250px" width="100%" vizType="bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
                     </commons:content>
                 </commons:ChartContainerContent>
             </commons:content>
-        </commons:ChartContainer>
-        <commons:ChartContainer id="chartContainer2" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Target Job (Architect)">
-            <commons:content>
-                <commons:ChartContainerContent icon="sap-icon://bar-chart" title="VizFrame Reference Chart">
-                    <commons:content>
-                        <viz:VizFrame id="vizFrameBar2" height="150px" width="100%" vizType="bar" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
-                    </commons:content>
-                </commons:ChartContainerContent>
-                <commons:ChartContainerContent icon="sap-icon://table-view" title="Table">
-                    <commons:content>
-                        <Table id="tableData2" items="{tableModel2>/jobDetails}">
-                            <columns>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Position"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Compensation"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Min Range"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Current"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Recent Hires"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Reference Point"/>
-                                </Column>
-                                <Column demandPopin="true">
-                                    <Label design="Bold" text="Max Range"/>
-                                </Column>
-                            </columns>
-                            <ColumnListItem press="">
-                                <Text text="{tableModel2>position}"></Text>
-                                <Text text="{tableModel2>compensation}"></Text>
-                                <Text text="{tableModel2>minRange}"></Text>
-                                <Text text="{tableModel2>current}"></Text>
-                                <Text text="{tableModel2>recentHires}"></Text>
-                                <Text text="{tableModel2>referencePoint}"></Text>
-                                <Text text="{tableModel2>maxRange}"></Text>
-                            </ColumnListItem>
-                        </Table>
-                    </commons:content>
-                </commons:ChartContainerContent>
-            </commons:content>
-        </commons:ChartContainer>
+        </commons:ChartContainer> -->
     </layout:VerticalLayout>
 </mvc:View>

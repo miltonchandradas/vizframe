@@ -28,73 +28,80 @@ sap.ui.define(
 
     return Controller.extend("com.sap.vizframe.controller.Main", {
       onInit: function () {
-        this._vizFrameModel =
-          this.getOwnerComponent().getModel("vizFrameModel");
-        this._lineModel = this.getOwnerComponent().getModel("lineModel");
-        this._tableModel = this.getOwnerComponent().getModel("tableModel");
+        this._vizFrameModel1 =
+          this.getOwnerComponent().getModel("vizFrameModel1");
+        this._lineModel1 = this.getOwnerComponent().getModel("lineModel1");
+
         this._vizFrameModel2 =
           this.getOwnerComponent().getModel("vizFrameModel2");
         this._lineModel2 = this.getOwnerComponent().getModel("lineModel2");
-        this._tableModel2 = this.getOwnerComponent().getModel("tableModel2");
 
         Format.numericFormatter(ChartFormatter.getInstance());
         let formatPattern = ChartFormatter.DefaultPattern;
 
-        let vizFrame = this.byId("vizFrameBar");
-        let dataset = new FlattenedDataset({
+        let vizFrame1 = this.byId("vizFrameBar1");
+        let dataset1 = new FlattenedDataset({
           dimensions: [
             {
-              name: "Position",
-              value: "{Position}",
+              name: "Min Recommended Salary",
+              value: "{position}",
             },
           ],
           measures: [
             {
-              name: "Compensation",
-              value: "{Value}",
+              name: "Min Range",
+              value: "{minBarValue}",
             },
             {
-              name: "Peer Review",
-              value: "{Value1}",
+              name: "Peer Salary Range",
+              value: "{maxBarValue}",
+            },
+            {
+              name: "Peer Bar",
+              value: "{peerBarValue}",
             },
           ],
           data: {
-            path: "/Payscale",
+            path: "/payscale",
           },
         });
 
-        vizFrame.setDataset(dataset);
+        vizFrame1.setDataset(dataset1);
 
-        vizFrame.setModel(this._vizFrameModel);
+        vizFrame1.setModel(this._vizFrameModel1);
 
-        let lines = this._lineModel.getData();
-        this._tableModel.setData(
-          datamanipulationUtils.populateTableModel(
-            this._lineModel,
-            this._vizFrameModel
-          )
-        );
+        let lines = this._lineModel1.getData();
 
-        vizFrame.setVizProperties({
-          legend: {visible: false},
+        vizFrame1.setVizProperties({
+          legend: { visible: false, maxNumOfItems: 1 },
           plotArea: {
-            colorPalette: ["#427CAC", "#FFFFFF"],
+            colorPalette: ["grey", "#427CAC", "#FFFFFF"],
             referenceLine: {
               line: { valueAxis: lines },
               defaultStyle: { size: 3, type: "solid" },
             },
             // drawingEffect: "glossy",
-            dataPointSize: { min: 10, max: 10 },
+            dataPointSize: { min: 30, max: 30 },
             gridline: { visible: true, type: "dash" },
           },
           title: {
             visible: false,
+            text: "Compensation Evaluation Dashboard"
           },
           dataLabel: {
-            visible: false,
-            // formatString: formatPattern.SHORTFLOAT_MFD2,
-            style: { color: "black" },
+            visible: true,
+            showTotal: false,
+            formatString: formatPattern.SHORTFLOAT_MFD2,
+            style: { color: "black", fontSize: 14 },
             position: "outside",
+            hideWhenOverlap: false,
+            renderer: (ctx) => {
+              console.log(JSON.stringify(ctx));
+              // if (ctx.val === 86000) ctx.text = "86k";
+              if (ctx.val === 18000) ctx.text = "Peer Salary Range";
+              else if (ctx.val === 35000) ctx.text = "Pay Range";
+              else ctx.text = "";
+            },
           },
           categoryAxis: {
             label: {
@@ -117,122 +124,115 @@ sap.ui.define(
             title: {
               visible: false,
             },
-          }
+          },
         });
 
         let xAxis = new FeedItem({
           uid: "valueAxis",
           type: "Measure",
-          values: ["Peer Review", "Compensation"],
-        });
-
-        let xAxii2 = new FeedItem({
-          uid: "valueAxis",
-          type: "Measure",
-          values: ["Compensation1"],
+          values: ["Peer Bar", "Peer Salary Range", "Min Range"],
         });
 
         let yAxis = new FeedItem({
           uid: "categoryAxis",
           type: "Dimension",
-          values: ["Position"],
+          values: ["Min Recommended Salary"],
         });
 
-        
-        vizFrame.addFeed(xAxis);
-        vizFrame.addFeed(yAxis);
+        vizFrame1.addFeed(xAxis);
+        vizFrame1.addFeed(yAxis);
+    
 
-        let vizFrame2 = this.byId("vizFrameBar2");
-        let dataset2 = new FlattenedDataset({
-          dimensions: [
-            {
-              name: "Position",
-              value: "{Position}",
-            },
-          ],
-          measures: [
-            {
-              name: "Compensation",
-              value: "{Value}",
-            },
-          ],
-          data: {
-            path: "/Payscale",
-          },
-        });
+        // let vizFrame2 = this.byId("vizFrameBar2");
+        // let lines2 = this._lineModel2.getData();
+        // let dataset2 = new FlattenedDataset({
+        //   dimensions: [
+        //     {
+        //       name: "Position",
+        //       value: "{Position}",
+        //     },
+        //   ],
+        //   measures: [
+        //     {
+        //       name: "Compensation",
+        //       value: "{Value}",
+        //     },
+        //   ],
+        //   data: {
+        //     path: "/Payscale",
+        //   },
+        // });
 
-        vizFrame2.setDataset(dataset2);
+        // vizFrame2.setDataset(dataset2);
 
-        vizFrame2.setModel(this._vizFrameModel2);
+        // vizFrame2.setModel(this._vizFrameModel2);
 
-        let lines2 = this._lineModel2.getData();
-        this._tableModel2.setData(
-          datamanipulationUtils.populateTableModel(
-            this._lineModel2,
-            this._vizFrameModel2
-          )
-        );
+        // vizFrame2.setVizProperties({
+        //   plotArea: {
+        //     colorPalette: ["#427CAC"],
+        //     referenceLine: {
+        //       line: { valueAxis: lines2 },
+        //       defaultStyle: { size: 3, type: "solid" },
+        //       formatString: formatPattern.SHORTFLOAT_MFD2,
+        //     },
+        //     // drawingEffect: "glossy",
+        //     dataPointSize: { min: 30, max: 30 },
+        //     gridline: { visible: true, type: "dash" },
+        //   },
+        //   title: {
+        //     visible: false,
+        //   },
+        //   dataLabel: {
+        //     visible: false,
+        //     showTotal: false,
+        //     style: { color: "black" },
+        //     position: "outside",
+        //     renderer: (ctx) => {
+        //       console.log(JSON.stringify(ctx));
+        //       if (ctx.val === 86000) ctx.text = "86k";
+        //       if (ctx.val === 18000) ctx.text = "Peer Salary Range";
+        //       if (ctx.val === 125000) ctx.text = "Pay Range";
+        //       if (ctx.val === 68000) ctx.text = "";
+        //     },
+        //   },
+        //   categoryAxis: {
+        //     label: {
+        //       visible: false,
+        //     },
+        //     title: {
+        //       visible: false,
+        //     },
+        //   },
+        //   valueAxis: {
+        //     scale: {
+        //       fixedRange: true,
+        //       minValue: 60000,
+        //       maxValue: 95000,
+        //     },
+        //     label: {
+        //       visible: true,
+        //       formatString: formatPattern.SHORTFLOAT,
+        //     },
+        //     title: {
+        //       visible: false,
+        //     },
+        //   },
+        // });
 
-        vizFrame2.setVizProperties({
-          plotArea: {
-            colorPalette: d3.scale.category20().range(),
-            referenceLine: {
-              line: { valueAxis: lines2 },
-              defaultStyle: { size: 3, type: "solid" },
-              formatString: formatPattern.SHORTFLOAT_MFD2,
-            },
-            drawingEffect: "glossy",
-            dataPointSize: { min: 10, max: 10 },
-            gridline: { visible: true, type: "dash" },
-          },
-          title: {
-            visible: false,
-          },
-          dataLabel: {
-            visible: true,
-            showTotal: true,
-            style: { color: "black" },
-            position: "outside",
-          },
-          categoryAxis: {
-            label: {
-              visible: false,
-            },
-            title: {
-              visible: false,
-            },
-          },
-          valueAxis: {
-            scale: {
-              fixedRange: true,
-              minValue: 10000,
-              maxValue: 100000,
-            },
-            label: {
-              visible: true,
-              formatString: formatPattern.SHORTFLOAT,
-            },
-            title: {
-              visible: false,
-            },
-          },
-        });
+        // let xAxis2 = new FeedItem({
+        //   uid: "valueAxis",
+        //   type: "Measure",
+        //   values: ["Compensation"],
+        // });
 
-        let xAxis2 = new FeedItem({
-          uid: "valueAxis",
-          type: "Measure",
-          values: ["Compensation"],
-          
-        });
+        // let yAxis2 = new FeedItem({
+        //   uid: "categoryAxis",
+        //   type: "Dimension",
+        //   values: ["Position"],
+        // });
 
-        let yAxis2 = new FeedItem({
-          uid: "categoryAxis",
-          type: "Dimension",
-          values: ["Position"],
-        });
-
-        vizFrame2.addFeed(xAxis2);
-        vizFrame2.addFeed(yAxis2);
+        // vizFrame2.addFeed(xAxis2);
+        // vizFrame2.addFeed(yAxis2);
 
         console.log("Complete...");
       },

@@ -58,16 +58,13 @@
           "bundleName": "com.sap.vizframe.i18n.i18n"
         }
       },
-      "vizFrameModel": {
+      "vizFrameModel1": {
         "type": "sap.ui.model.json.JSONModel",
-        "uri": "./model/VizFrameData.json"
+        "uri": "./model/VizFrameData1.json"
       },
-      "lineModel": {
+      "lineModel1": {
         "type": "sap.ui.model.json.JSONModel",
-        "uri": "./model/LineData.json"
-      },
-      "tableModel": {
-        "type": "sap.ui.model.json.JSONModel"
+        "uri": "./model/LineData1.json"
       },
       "vizFrameModel2": {
         "type": "sap.ui.model.json.JSONModel",
@@ -76,9 +73,6 @@
       "lineModel2": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "./model/LineData2.json"
-      },
-      "tableModel2": {
-        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {

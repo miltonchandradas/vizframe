@@ -1,0 +1,31 @@
+{
+  "val": 68000,
+  "text": "68K",
+  "ctx": {
+    "measureNames": "Min Range",
+    "_context_row_number": 0,
+    "Min Recommended Salary": "Senior Engineer",
+    "Min Range": 68000
+  },
+  "info": {
+    "key": "Min Range",
+    "value": 68000,
+    "keepMND": true,
+    "formattedValue": "68K",
+    "formattedPercentage": null
+  },
+  "styles": {
+    "fill": "#000000",
+    "font-family": "\"72\",\"72full\",Arial,Helvetica,sans-serif",
+    "font-size": "12px",
+    "font-weight": "normal",
+    "font-style": "normal",
+    "cssString": "fill:#000000;font-family:\"72\",\"72full\",Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;font-style:normal;"
+  },
+  "horizontal": true,
+  "dpBBox": {},
+  "plotSize": { "height": 92.6, "width": 685.49375 },
+  "zeroLineAdjust": true,
+  "dataPointWidth": 1331.81640625,
+  "dataPointHeight": 15
+}

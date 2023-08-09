@@ -19,22 +19,13 @@
         "background": "sapUiCriticalElement"
       }
     },
+
     {
-      "value": 65000,
+      "value": 80000,
       "visible": true,
       "color": "sapUiPositiveElement",
       "label": {
-        "text": "Recent Hires - $65k",
-        "visible": true,
-        "background": "sapUiPositiveElement"
-      }
-    },
-    {
-      "value": 90000,
-      "visible": true,
-      "color": "sapUiPositiveElement",
-      "label": {
-        "text": "Ref Point - $90k",
+        "text": "Ref Point - $80k",
         "visible": true,
         "background": "sapUiPositiveElement"
       }
